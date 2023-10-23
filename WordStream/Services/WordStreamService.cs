@@ -1,19 +1,40 @@
 ﻿using Booster.CodingTest.Library;
+using BoosterTest.Services.Interfaces;
 using Common.DataTransferObjects.WordStream;
-using RnrNominationPeriodStatus.Services.Interfaces;
 
-namespace RnrNominationPeriodStatus.Services
+namespace BoosterTest.Services
 {
     public class WordStreamService : IWordStreamService
     {
-        public async Task<WordStreamResultDetail> GetTotalNumberOfCharactersAndWords(string val) 
+        public async Task<WordStreamResultDetail> AddWord(string currentWord) 
         {
-            WordStreamResultDetail wsDetail = new();
-            WordStream ws = new();
-            var lsU = NLipsum.Core.LipsumUtilities.GetTextFromRawXml(val);
-            ws.
+            WordStreamResultDetail wordStreamResultDetail = new();
 
-            return wsDetail;
+            // Update word frequency
+            if (wordStreamResultDetail.WordFrequency.ContainsKey(currentWord))
+                wordStreamResultDetail.WordFrequency[currentWord]++;
+            else
+                wordStreamResultDetail.WordFrequency[currentWord] = 1;
+
+
+            // Update largest and smallest words lists
+            if (wordStreamResultDetail.LargestWords.Count() < 5 || currentWord.Length > wordStreamResultDetail.LargestWords.Min(w => w.Length))
+            {
+                if (wordStreamResultDetail.LargestWords.Count() >= 5)
+                    wordStreamResultDetail.LargestWords.Remove(wordStreamResultDetail.LargestWords.First(w => w.Length == wordStreamResultDetail.LargestWords.Min(w => w.Length)));
+
+                wordStreamResultDetail.LargestWords.Add(currentWord);
+            }
+
+            if (wordStreamResultDetail.SmallestWords.Count < 5 || currentWord.Length < wordStreamResultDetail.SmallestWords.Max(w => w.Length))
+            {
+                if (wordStreamResultDetail.SmallestWords.Count >= 5)
+                    wordStreamResultDetail.SmallestWords.Remove(wordStreamResultDetail.SmallestWords.First(w => w.Length == wordStreamResultDetail.SmallestWords.Max(w => w.Length)));
+
+                wordStreamResultDetail.SmallestWords.Add(currentWord);
+            }
+
+            return wordStreamResultDetail;
         }
     }
 }

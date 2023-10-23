@@ -1,5 +1,8 @@
 ﻿using Booster.CodingTest.Library;
+using BoosterTest.Services;
+using BoosterTest.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using NLipsum.Core;
 using Serilog;
@@ -22,10 +25,7 @@ AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionHandler;
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices((context, services) =>
     {
-        /*
-         TODO: if given with more time, create a service for WordStream to perform such methods.
-         */
-        //services.AddScoped<IWordStreamService, WordStreamService>();
+        services.AddScoped<IWordStreamService, WordStreamService>();
     })
     .UseSerilog()
     .Build();
@@ -85,18 +85,19 @@ static void StartProcess(IHost host)
         }
         else if (!string.IsNullOrEmpty(currentWord))
         {
+            /*
+             TODO: I intentionally cut it to 11 since the stream could be endless. Update as necessary
+             */
+            if (wordFrequency.Count() > 10)
+                break;
+
             // Update word frequency
             if (wordFrequency.ContainsKey(currentWord))
                 wordFrequency[currentWord]++;
             else
                 wordFrequency[currentWord] = 1;
 
-            /*
-             TODO: I intentionally cut it to 11 since the stream could be endless. Update as necessary
-             */
-            if (wordFrequency.Count() > 10)
-                break;
-            
+
             // Update largest and smallest words lists
             if (largestWords.Count < 5 || currentWord.Length > largestWords.Min(w => w.Length))
             {

@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordStream", "WordStream\Wo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{E9B4DBD8-12BA-402A-B9D9-824EF425A1E3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "05 Test", "05 Test", "{248B8431-6390-4412-87A5-89CB358B257A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoosterTesting", "BoosterTesting\BoosterTesting\BoosterTesting.csproj", "{C9D7354A-D8A1-415E-BF7F-45574AC84919}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,10 @@ Global
 		{E9B4DBD8-12BA-402A-B9D9-824EF425A1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9B4DBD8-12BA-402A-B9D9-824EF425A1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9B4DBD8-12BA-402A-B9D9-824EF425A1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D7354A-D8A1-415E-BF7F-45574AC84919}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D7354A-D8A1-415E-BF7F-45574AC84919}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D7354A-D8A1-415E-BF7F-45574AC84919}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D7354A-D8A1-415E-BF7F-45574AC84919}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DC1CDDC5-6113-41EB-B17B-C38B339B8F58} = {8AF6F724-0D85-402D-807E-EC1372FC441B}
 		{E9B4DBD8-12BA-402A-B9D9-824EF425A1E3} = {65517FA9-E6A2-470E-B074-CFB5E14CCA28}
+		{C9D7354A-D8A1-415E-BF7F-45574AC84919} = {248B8431-6390-4412-87A5-89CB358B257A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5AD4CF27-10D1-4341-9C48-7F50710F4D11}

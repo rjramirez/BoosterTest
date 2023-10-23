@@ -1,10 +1,9 @@
 ﻿using Common.DataTransferObjects.WordStream;
-using Microsoft.Extensions.Primitives;
 
-namespace RnrNominationPeriodStatus.Services.Interfaces
+namespace BoosterTest.Services.Interfaces
 {
     public interface IWordStreamService
     {
-       async Task<WordStreamResultDetail> GetTotalNumberOfCharactersAndWords();
+        Task<WordStreamResultDetail> AddWord(string currentWord);
     }
 }
