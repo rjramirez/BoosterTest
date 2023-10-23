@@ -47,9 +47,11 @@
   <ItemGroup>
     <Reference Include="Booster.CodingTest.Library">
       <HintPath>..\Common\Assemblies\Booster.CodingTest.Library.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="NLipsum.Core">
       <HintPath>..\Common\Assemblies\NLipsum.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
 
