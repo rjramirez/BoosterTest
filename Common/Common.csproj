@@ -9,20 +9,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Constants\**" />
     <Compile Remove="DataTransferObjects\AppSettings\**" />
     <Compile Remove="DataTransferObjects\AuditTrail\**" />
     <Compile Remove="DataTransferObjects\CollectionPaging\**" />
     <Compile Remove="DataTransferObjects\CommonSearch\**" />
+    <Compile Remove="DataTransferObjects\ErrorLog\**" />
     <Compile Remove="DataTransferObjects\Token\**" />
+    <EmbeddedResource Remove="Constants\**" />
     <EmbeddedResource Remove="DataTransferObjects\AppSettings\**" />
     <EmbeddedResource Remove="DataTransferObjects\AuditTrail\**" />
     <EmbeddedResource Remove="DataTransferObjects\CollectionPaging\**" />
     <EmbeddedResource Remove="DataTransferObjects\CommonSearch\**" />
+    <EmbeddedResource Remove="DataTransferObjects\ErrorLog\**" />
     <EmbeddedResource Remove="DataTransferObjects\Token\**" />
+    <None Remove="Constants\**" />
     <None Remove="DataTransferObjects\AppSettings\**" />
     <None Remove="DataTransferObjects\AuditTrail\**" />
     <None Remove="DataTransferObjects\CollectionPaging\**" />
     <None Remove="DataTransferObjects\CommonSearch\**" />
+    <None Remove="DataTransferObjects\ErrorLog\**" />
     <None Remove="DataTransferObjects\Token\**" />
   </ItemGroup>
 
@@ -32,6 +38,19 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Assemblies\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Assemblies\Booster.CodingTest.Library.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Assemblies\NLipsum.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

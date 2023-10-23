@@ -1,4 +1,5 @@
 ﻿using Booster.CodingTest.Library;
+using Common.DataTransferObjects.WordStream;
 using RnrNominationPeriodStatus.Services.Interfaces;
 using Serilog;
 
@@ -6,16 +7,14 @@ namespace RnrNominationPeriodStatus.Services
 {
     public class WordStreamService : IWordStreamService
     {
-        public async Task<string> GetTotalNumberOfCharactersAndWords(string val) 
+        public async Task<WordStreamResultDetail> GetTotalNumberOfCharactersAndWords(string val) 
         {
-
-
+            WordStreamResultDetail wsDetail = new();
             WordStream ws = new();
-            var ls = NLipsum.Core.LipsumGenerator.Generate(2);
-            var lsU = NLipsum.Core.LipsumUtilities.GetTextFromRawXml(ls);
-            ws.;
+            var lsU = NLipsum.Core.LipsumUtilities.GetTextFromRawXml(val);
+            ws.
 
-            return test;
+            return wsDetail;
         }
 
         //private readonly HttpClient _httpClient;

@@ -1,7 +1,10 @@
-﻿namespace RnrNominationPeriodStatus.Services.Interfaces
+﻿using Common.DataTransferObjects.WordStream;
+using Microsoft.Extensions.Primitives;
+
+namespace RnrNominationPeriodStatus.Services.Interfaces
 {
     public interface IWordStreamService
     {
-        Task<string> GetTotalNumberOfCharactersAndWords();
+       async Task<WordStreamResultDetail> GetTotalNumberOfCharactersAndWords();
     }
 }

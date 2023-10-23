@@ -5,18 +5,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="lib\**" />
+    <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="lib\**" />
+    <EmbeddedResource Remove="Services\**" />
+    <None Remove="lib\**" />
+    <None Remove="Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Extensions\ResponseMessageExtension.cs" />
-    <Compile Remove="Services\ApplicationCountryService.cs" />
-    <Compile Remove="Services\GlobalMappingService.cs" />
-    <Compile Remove="Services\Interfaces\IApplicationCountryService.cs" />
-    <Compile Remove="Services\Interfaces\IGlobalMappingService.cs" />
-    <Compile Remove="Services\Interfaces\IMicrosoftGraphService.cs" />
-    <Compile Remove="Services\Interfaces\IPeriodService.cs" />
-    <Compile Remove="Services\MicrosoftGraphService.cs" />
-    <Compile Remove="Services\PeriodService.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -39,11 +41,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Booster.CodingTest.Library">
-      <HintPath>lib\Booster.CodingTest.Library.dll</HintPath>
+      <HintPath>..\Common\Assemblies\Booster.CodingTest.Library.dll</HintPath>
     </Reference>
     <Reference Include="NLipsum.Core">
-      <HintPath>lib\NLipsum.Core.dll</HintPath>
+      <HintPath>..\Common\Assemblies\NLipsum.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
 
