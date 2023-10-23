@@ -92,6 +92,13 @@ static async void StartProcess(IHost host)
             if (wordFrequency.Count() > 10)
                 break;
 
+            // Update word frequency
+            if (wordFrequency.ContainsKey(currentWord))
+                wordFrequency[currentWord]++;
+            else
+                wordFrequency[currentWord] = 1;
+
+
             // Update largest and smallest words lists
             if (largestWords.Count < 5 || currentWord.Length > largestWords.Min(w => w.Length))
             {
