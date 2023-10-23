@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<Deterministic>false</Deterministic>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="DataTransferObjects\AppSettings\**" />
+    <Compile Remove="DataTransferObjects\AuditTrail\**" />
+    <Compile Remove="DataTransferObjects\CollectionPaging\**" />
+    <Compile Remove="DataTransferObjects\CommonSearch\**" />
+    <Compile Remove="DataTransferObjects\Token\**" />
+    <EmbeddedResource Remove="DataTransferObjects\AppSettings\**" />
+    <EmbeddedResource Remove="DataTransferObjects\AuditTrail\**" />
+    <EmbeddedResource Remove="DataTransferObjects\CollectionPaging\**" />
+    <EmbeddedResource Remove="DataTransferObjects\CommonSearch\**" />
+    <EmbeddedResource Remove="DataTransferObjects\Token\**" />
+    <None Remove="DataTransferObjects\AppSettings\**" />
+    <None Remove="DataTransferObjects\AuditTrail\**" />
+    <None Remove="DataTransferObjects\CollectionPaging\**" />
+    <None Remove="DataTransferObjects\CommonSearch\**" />
+    <None Remove="DataTransferObjects\Token\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\AssemblyInfo.cs" Link="AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

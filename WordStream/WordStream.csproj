@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Extensions\ResponseMessageExtension.cs" />
+    <Compile Remove="Services\ApplicationCountryService.cs" />
+    <Compile Remove="Services\GlobalMappingService.cs" />
+    <Compile Remove="Services\Interfaces\IApplicationCountryService.cs" />
+    <Compile Remove="Services\Interfaces\IGlobalMappingService.cs" />
+    <Compile Remove="Services\Interfaces\IMicrosoftGraphService.cs" />
+    <Compile Remove="Services\Interfaces\IPeriodService.cs" />
+    <Compile Remove="Services\MicrosoftGraphService.cs" />
+    <Compile Remove="Services\PeriodService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Extensions\" />
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Booster.CodingTest.Library">
+      <HintPath>lib\Booster.CodingTest.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="NLipsum.Core">
+      <HintPath>lib\NLipsum.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
