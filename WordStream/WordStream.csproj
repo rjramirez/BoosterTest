@@ -9,16 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Extensions\**" />
     <Compile Remove="lib\**" />
     <Compile Remove="Services\**" />
+    <EmbeddedResource Remove="Extensions\**" />
     <EmbeddedResource Remove="lib\**" />
     <EmbeddedResource Remove="Services\**" />
+    <None Remove="Extensions\**" />
     <None Remove="lib\**" />
     <None Remove="Services\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Extensions\ResponseMessageExtension.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,7 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
