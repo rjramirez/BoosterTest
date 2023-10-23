@@ -1,6 +1,5 @@
-﻿using Booster.CodingTest.Library;
-using BoosterTest.Services;
-using BoosterTest.Services.Interfaces;
+﻿using WordStream.Services;
+using WordStream.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -38,9 +37,11 @@ static void UnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs
     Log.Logger.Error("Error Message: {message}, Stack Trace: {stackTace}", ex.Message, ex.StackTrace);
 }
 
-static void StartProcess(IHost host)
+static async void StartProcess(IHost host)
 {
-    var stream = new WordStream();
+    IWordStreamService wordStreamService = ActivatorUtilities.CreateInstance<WordStreamService>(host.Services);
+
+    var stream = new Booster.CodingTest.Library.WordStream();
 
     int characterCount = 0;
     int wordCount = 0;
@@ -91,13 +92,6 @@ static void StartProcess(IHost host)
             if (wordFrequency.Count() > 10)
                 break;
 
-            // Update word frequency
-            if (wordFrequency.ContainsKey(currentWord))
-                wordFrequency[currentWord]++;
-            else
-                wordFrequency[currentWord] = 1;
-
-
             // Update largest and smallest words lists
             if (largestWords.Count < 5 || currentWord.Length > largestWords.Min(w => w.Length))
             {
@@ -116,9 +110,9 @@ static void StartProcess(IHost host)
             }
 
             //TODO: Check if maybe contained in given lipsum words? Remove if not needed.
-            bool containsLipsumWord = lipsumWords.Any(word => string.Equals(word, currentWord, StringComparison.OrdinalIgnoreCase));
+            bool hasLimpsumWord = await wordStreamService.HasLimpsumWord(lipsumWords, currentWord);
 
-            if (!containsLipsumWord)
+            if (!hasLimpsumWord)
             {
                 currentWord = string.Empty;
                 continue;

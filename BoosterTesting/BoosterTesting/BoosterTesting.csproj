@@ -16,4 +16,14 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\WordStream\WordStream.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NLipsum.Core">
+      <HintPath>..\..\Common\Assemblies\NLipsum.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

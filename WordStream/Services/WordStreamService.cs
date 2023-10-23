@@ -1,8 +1,8 @@
 ﻿using Booster.CodingTest.Library;
-using BoosterTest.Services.Interfaces;
+using WordStream.Services.Interfaces;
 using Common.DataTransferObjects.WordStream;
 
-namespace BoosterTest.Services
+namespace WordStream.Services
 {
     public class WordStreamService : IWordStreamService
     {
@@ -35,6 +35,11 @@ namespace BoosterTest.Services
             }
 
             return wordStreamResultDetail;
+        }
+
+        public async Task<bool> HasLimpsumWord(IEnumerable<string> lipsumWords, string currentWord)
+        {
+            return lipsumWords.Any(word => string.Equals(word, currentWord, StringComparison.OrdinalIgnoreCase));
         }
     }
 }
